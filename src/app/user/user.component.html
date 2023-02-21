@@ -1,0 +1,33 @@
+<app-dialog *ngIf="dialogService.openedDialog" [largeImg]="ulrLargeImg"></app-dialog>
+
+<div class="toolbar">
+    <input class="search" placeholder="search user by name" type="text" [(ngModel)]="enteredSearchValue" />
+    <div class="actions countries">
+        <div class="filter">
+            <select [formControl]="countryControl" class="selection">
+                <option [value]="null" disabled>Select Country</option>
+                <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+            </select>
+            <button class="btn" (click)=" filterByCountry()">Display</button>
+        </div>
+        <button class="btn btn-2" (click)="getUsers()">Display all</button>
+    </div>
+    <div class="actions">
+        <button class="btn" (click)=" sortByCountry()">Sort by country (alphabetically)</button>
+    </div>
+</div>
+
+<h2 style="text-align: center;">250 USERS FROM RANDOMUSER.ME</h2>
+
+
+<div class="grid-container">
+    <div class="grid-item" *ngFor="let user of users$ |async">
+        <div class="card" *ngIf="searchBy(user.name.first, user.name.last) ">
+            <div class="thumbnail"><img src="{{user.picture.thumbnail}}" (click)="openLargeImg(user.picture.large)">
+            </div>
+            <div class="name"> <span>{{user.name.first}} {{user.name.last}}</span></div>
+            <div class="country">{{user.location.country}}</div>
+            <div class="mail">{{user.email}} </div>
+        </div>
+    </div>
+</div>

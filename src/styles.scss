@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../src/assets/pallete';
+
+body{
+    
+    background-image: linear-gradient(225deg, #8bb7ee,#e7fdfd ) ;
+}
+
+*{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+::-webkit-scrollbar {
+    width: 0.8rem;   
+  }
+  
+  ::-webkit-scrollbar-track {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background: #e7fdfd;  
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #335D7F; 
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    box-shadow: 5px 5px 15px #f49431,5px 5px 15px #f49431, 5px 5px 15px #f49431;
+  }
